@@ -1,4 +1,4 @@
-# shufflecards
+# Simple Shopping cart
 
 ## Project setup
 ```
