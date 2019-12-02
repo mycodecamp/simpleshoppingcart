@@ -8,8 +8,8 @@
       <div class="container">           
         <div class="row">          
          
-            <ProductList v-for="(laptop, index) in laptops" :key="laptop.id">
-             
+            <ProductList v-for="(laptop, index) in laptops" :key="laptop.id" >
+              
               <template v-slot:price>{{ laptop.price | currencyfilter}}</template>
               <template v-slot:name>{{ laptop.name }}</template>
               
@@ -22,6 +22,7 @@
               <template v-slot:addToCartBtnSlot>
                 <button type="button" class="btn btn-sm btn-primary add-to-cart" id="CartBtn" @click="addtocart(laptop,index)">Add to cart</button>
               </template>
+              <template v-slot:detail ><span v-html="laptop.detail"></span></template>
             </ProductList>
 
           
@@ -34,7 +35,7 @@
     <div class="Check-out-box" v-show="showcheckout">
       <div class="Check-out-wrapper">
         <div class="Check-out-container">
-          <div class="checkoutclose"><a href="#" @click="closeCheckout"><font-awesome-icon icon="times" size="1.5x"/></a></div>
+          <div class="checkoutclose"><a href="#" @click="closeCheckout"><font-awesome-icon icon="times" /></a></div>
 
           <div class="Check-out-head">
             <h2>Check out</h2>
@@ -76,55 +77,64 @@ export default {
             name: "Macbook",
             price: 899.99,
             image:"https://cdn.pixabay.com/photo/2014/05/02/21/47/workstation-336369_1280.jpg",
-            colors:["White","Silver"]
+            colors:["White","Silver"],
+            detail: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           },
           {
             name: "Acer",
             price: 499.00,
             image:"https://cdn.pixabay.com/photo/2015/05/31/10/51/acer-791027_1280.jpg",
-            colors:["Silver"]
+            colors:["Silver"],
+            detail: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
           },
           {
            name: "Samsung",
             price: 899.99,
             image:"https://cdn.pixabay.com/photo/2014/07/30/22/53/notebook-405755_1280.jpg",
-            colors:["Black"]
+            colors:["Black"],
+            detail: "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>"
           },
           {
            name: "Microsoft Surface",
             price: 1290.90,
             image:"https://cdn.pixabay.com/photo/2018/09/07/05/41/surface-book-3660000_1280.jpg",
-            colors:["Black", "Red", "Blue"]
+            colors:["Black", "Red", "Blue"],
+            detail: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>"
           },
           {
            name: "Lenovo Thinkpad",
             price: 635.60,
             image:"https://cdn.pixabay.com/photo/2016/04/17/17/43/lenovo-thinkpad-x61-tablet-1335138_1280.jpg",
-            colors:["Black","Silver"]
+            colors:["Black","Silver"],
+             detail: "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           },
           {
            name: "HP",
             price:579.90,
             image:"https://cdn.pixabay.com/photo/2016/06/08/10/35/laptop-1443559_1280.jpg",
-            colors:["Teal","Navy"]
+            colors:["Teal","Navy"],
+            detail: "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           },
           {
            name: "Asus",
             price: 428.90,
             image:"https://cdn.pixabay.com/photo/2014/09/27/13/45/notebook-463490_1280.jpg",
-            colors:["Black", "Red"]
+            colors:["Black", "Red"],
+            detail: "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           },
           {
            name: "MSI",
             price: 345.00,
             image:"https://cdn.pixabay.com/photo/2012/04/13/20/24/laptop-33521_1280.png",
-            colors:["Black"]
+            colors:["Black"],
+            detail: "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           },
           {
            name: "Dell",
             price: 289.90,
             image:"https://cdn.pixabay.com/photo/2017/01/06/00/45/computer-1956711_1280.png",
-            colors:["Black", "Blue"]
+            colors:["Black", "Blue"],
+            detail: "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
           }
       ]
   },
@@ -139,7 +149,8 @@ export default {
             name: laptop.name,
             price: laptop.price,
             image:laptop.image,
-            color: this.laptopColorChecked[index]
+            color: this.laptopColorChecked[index],
+            detail: laptop.detail
         }
 
         this.cartList.push(mycart);
