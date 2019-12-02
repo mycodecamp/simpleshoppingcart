@@ -1,5 +1,9 @@
 # Simple Shopping cart
 
+## Demo
+
+[Simple shopping cart demo](https://mycodecamp.github.io/simpleshoppingcart/)
+
 ## Project setup
 ```
 npm install
@@ -19,5 +23,3 @@ npm run build
 ```
 npm run lint
 ```
-
-
